@@ -39,8 +39,7 @@ alert('deviceready');
 document.addEventListener("deviceready", GetGeoLocation , false);
 function  GetGeoLocation () {
   navigator.geolocation.getCurrentPosition(ShowPosition, ShowError);
-  alert(';GetGeoLocation')
-  
+  alert(';GetGeoLocation');  
 }
 function onBackKeyDown() {
     var active_page = $( ":mobile-pagecontainer" ).pagecontainer( "getActivePage" );
