@@ -81,6 +81,7 @@ alert(watchId+'watchId');
    navigator.geolocation.getCurrentPosition(onSuccess, onError);  
 
 //alert(geolocation.getCurrentPosition+'alert(geolocation.getCurrentPosition)');
+alert(navigator.geolocation.getCurrentPosition+'navigator.geolocation.getCurrentPosition     adfjasidf   inside');
 
       function onSuccess(position) {
 
