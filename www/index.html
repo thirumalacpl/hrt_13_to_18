@@ -1,0 +1,1023 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>My Heart</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<link rel="stylesheet" href="css/font-awesome.min.css" />
+		<link rel="stylesheet" href="css/jquery.mobile.min.css" />
+		<link rel="stylesheet" href="vendor/waves/waves.min.css" />
+		<link rel="stylesheet" href="vendor/wow/animate.css" />
+		<link rel="stylesheet" href="css/nativedroid2.css" />
+
+		<meta name="mobile-web-app-capable" content="yes">
+	 	<meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+<script src="js/jquery.mobile.min.js"></script>
+   <script src="js/jquery-1.11.3.min.js"></script>
+   	<script src="js/jquery-ui.min.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+<!-- <script src="js/jquery.min.js"></script> -->
+
+
+  <link rel="stylesheet" href="css/heart.css" />
+
+
+<script type="text/javascript">
+  //handle Back button
+function onDeviceReady() {
+   
+    document.addEventListener("backbutton", onBackKeyDown, false);
+    console.log('Device ready - register onBackKeyDown()');                
+}
+
+document.addEventListener("deviceready", onDeviceReady, false);
+
+/*function onBackKeyDown() {
+    var active_page = $( ":mobile-pagecontainer" ).pagecontainer( "getActivePage" );
+    var id =active_page.page().attr('id');
+    if (id==='sear_nearby_mapp') {
+      alert("asdadewwwwwwwwwwwww");
+      $.mobile.changepage($('#sear_nearby_mapp'),{transition:"none", changeHash: true, reverse: false});
+return false;
+    }
+}*/
+
+document.addEventListener('deviceready', function() {
+    alert('deviceready');
+    var exitApp = false, intval = setInterval(function (){exitApp = false;}, 1000);
+    document.addEventListener("backbutton", function (e){
+        e.preventDefault();
+        if (exitApp) {
+            clearInterval(intval) 
+            (navigator.app && navigator.app.exitApp()) || (device && device.exitApp())
+        }
+        else {
+            exitApp = true
+            history.back(1);
+        } 
+    }, false);
+}, false);
+
+</script>
+
+	</head>
+	<body>
+
+<!--Page one starts-->
+
+       <div data-role="page"  id="pageone" class="main-bg">
+<script type="text/javascript" src="js/condition.js"></script>
+			<nd2-include data-src=".//examples/fragments/panel.left.html"></nd2-include>
+
+			<div data-role="panel" id="bottomsheet" data-animate="false" data-position='bottom' data-display="overlay">
+				<nd2-include data-src=".//examples/fragments/bottom.sheet.html"></nd2-include>
+			</div>
+
+			<!-- <div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+				<a href="#bottomsheet" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-more-vert"></i></a>
+				<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+				<h1 class="wow fadeIn" data-wow-delay='0.4s'>Page Title</h1>
+			</div>-->
+			<div role="main" class="ui-content main-top" data-inset="false" >
+			
+				<div class="main-both1">&nbsp;</div>
+
+				<div class="main-center"> <img src="./img/logo.PNG"></div>
+                <div class="main-both2">&nbsp;</div>
+
+				<a href="" class="ui-btn ui-btn-raised" id="emergency">Emergency</a>
+				
+				 <div class="main-both3">&nbsp;</div>
+				<a href="#" class="ui-btn ui-btn-raised">Non -Emergency</a>
+			</div>
+
+		</div>
+<!--Page one ends-->
+
+<!--Page two starts-->
+
+ <div data-role="page" id="cond_patient_details">
+<script type="text/javascript" src="js/condition_pat_detail.js"></script>
+		<style type="text/css">
+.ui-input-text, .ui-input-search, textarea.ui-input-text.ui-textinput-autogrow {
+    margin: 0px 0px 26px 0px !important;
+    padding: 5px !important;
+}
+.lega{
+    /* background-color: #53a596 !important; */
+    background-color: #00A5B8 !important;
+    /* background-color: #7E8AAF !important; */
+    width: 97%;
+    color: white !important;
+    padding: 12px;
+    font-size: 18px !important;
+    height: 17px;
+    font-weight: 800 !important;
+}
+.rwa {
+    /* background-color: #2a303c!important; */
+    /*1background-color: #425B93!important;*/
+        background-color: rgb(32, 122, 144) !important;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.ssecc{
+	color: white;
+    font-size: 25px;
+    font-family: sans-serif;
+    text-align: center;
+    padding-top: 12px;
+    font-weight: 600;
+    position: fixed;
+    left: 20%;
+    right: 20%;
+}
+.bg-radio-col{
+    background-color:#58a698!important;
+}
+.select_agea{
+/*    background-color: #7C949A !important ;*/
+     /*background-color: #838C8E !important;*/
+     background-color: #CAD2D4 !important;
+
+}
+.select_agelab{
+        background-color: #CAD2D4 !important;
+        color:#124652 !important;
+        font-weight:600 !important; 
+}
+</style>
+
+
+			<nd2-include data-src="examples/fragments/panel.left.html"></nd2-include>
+
+			<div data-role="panel" id="bottomsheet" data-animate="false" data-position='bottom' data-display="overlay">
+				<nd2-include data-src="examples/fragments/bottom.sheet.html"></nd2-include>
+			</div>
+
+			 <div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+			<!-- 	<a href="#bottomsheet" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-more-vert"></i></a> -->
+				<!-- <a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a> -->
+          <a href="#pageone" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi  zmdi-arrow-back" ></i></a>
+				<h1 class="wow fadeIn" data-wow-delay='0.4s'>My Heart</h1>
+			</div>
+
+			<div role="main" class="ui-content sec-bg" data-inset="false">
+	
+
+<p class="sec-head ssecc">Patient Details</p>
+
+<div class="sec-both">&nbsp;</div>
+<br>
+  <form method="post"  id="pat_detai" style="margin-top:50px"> 
+	<div class="ui-grid-solo sec-mainsolo">
+
+    <div class="ui-block-a"> 
+      	<div class="ui-grid-solo">
+		<div class="col-md-12">
+		<div class="box">
+
+
+<div class="row " style="margin-left:5px;margin-right:5px">
+ <label  for="textarea2b" class="fnt1 lega rwa" >Patient  Name</label>
+  <div  style="width: 99%;" class="fnt2" id="" ></div>
+
+    <textarea  style="background-color: #ffffff !important;"cols="40" rows="8" name="name2" id="pat_name" value="" placeholder="Patient  Name"></textarea>
+
+
+</div>
+
+       <!--  <input type="text" name="name2" id="pat_name" value="" data-clear-btn="true" placeholder="Patient  Name..."> -->
+ <br>
+ <div class="row " style="margin-left:5px;margin-right:5px">
+ <label  for="textarea2b" class="fnt1 lega rwa" >Patient  Age</label>
+  <div  style="width: 99%;" class="fnt2" id="" ></div>
+
+    <!-- <textarea  style="background-color: #ffffff !important;"cols="40" rows="8" name="age" id="age_n" value="" placeholder="Age"></textarea> -->
+     <input type="number"  style="background-color: #ffffff !important;"  class="age_n_style" cols="40" rows="8" name="age" id="age_n" value=""  placeholder="Age">
+
+
+</div>
+  <!-- <input type="text" name="age" id="age_n" value="" data-clear-btn="true" placeholder="Age..."> -->
+
+
+    <br>
+
+<!--     <div class="ui-grid-b select_age">
+        <fieldset data-role="controlgroup">                 
+        <div class="ui-block-a gender_1">
+	    <legend style="padding: 15px 0px 0px 13px;">Gender</legend> 
+         </div>
+        <div class="ui-block-b gender_2">
+          <input type="radio" name="gender_de" id="radio-choice-1b"  value="male" checked="checked">
+           <label for="radio-choice-1b" class="select_age bg-radio-col" style="background-color:#EBEBEB !important">Male</label> 
+         </div>
+        <div class="ui-block-c gender_3">
+          <input type="radio" name="gender_de" id="radio-choice-2b" value="female">
+           <label for="radio-choice-2b" class="select_age bg-radio-col" style="background-color:#EBEBEB !important">Female</label> 
+        </div>          
+        </fieldset> 
+    </div> -->
+
+ <div class="ui-grid-b select_agea">
+  <div class="row " style="margin-left:5px;margin-right:5px">
+ <label  for="textarea2b" class="fnt1 lega rwa" >Patient  Gender</label>
+        <fieldset data-role="controlgroup">                 
+      
+        <div class="ui-block-a medilef" style="margin-left:30px">
+          <input type="radio" name="gender_de" id="radio-choice-1b"  value="male" checked="checked">
+           <label for="radio-choice-1b" class="select_agelab bg-radio-col" >Male</label> 
+         </div>
+        <div class="ui-block-b medilef" style="margin-left:30px">
+          <input type="radio" name="gender_de" id="radio-choice-2b" value="female">
+           <label for="radio-choice-2b" class="select_agelab bg-radio-col uiradbac" >Female</label> 
+        </div>          
+        </fieldset> 
+        </div>
+    </div> 
+
+        <!--   <p id="geolocation">Waiting for location...</p> -->
+
+    <br>
+ <div class="row " style="margin-left:5px;margin-right:5px">
+ <label  for="textarea2b" class="fnt1 lega rwa" >Patient Mobile Number</label>
+  <div  style="width: 99%;" class="fnt2" id="" ></div>
+
+    <!-- <textarea  style="background-color: #ffffff !important;" cols="40" rows="8" name="mob_no" id="mob_no" value="" placeholder="Enter Your Mobile Number"></textarea> -->
+    <input type="number"  style="background-color: #ffffff !important;" class="age_n_style_mob" cols="40" rows="8" name="mob_no" id="mob_no" value=""  placeholder="Enter Your Mobile Number">
+
+
+</div>
+
+<!--   <a href="#myPopup1d" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all" data-position-to="window">Position popup to window</a> -->
+
+     <div data-role="popup" id="myPopup1d" class="ui-content" data-dismissible="false" >
+      <p class="popsi">Details Submitted Successfully</p>
+<!--       <a href="#question_li" class="txt-dec">  <input type="button" value="ok" style="opacity: inherit; border-radius: 0px;background-color:white" id=""> dsfdas</a> -->
+     <a href="#" > <button style="border: solid 2px #00BBD3;opacity: inherit; border-radius: 0px;background-color:#00A3B5;color:white;font-size:larger" id="oktoquestio">OK</button></a>
+
+    </div>
+<!--     <div >
+	<input type="text" name="mob_no" id="mob_no" value="" data-clear-btn="true" placeholder="Enter Your Mobile Number...">
+    </div> -->
+
+     <br>
+
+<div style="float:center;margin-left:25%;margin-right:25%">
+	  <a href="#" class="txt-dec">  <input type="button" value="Submit" style="border: solid 2px #00BBD3;opacity: inherit; border-radius: 0px;" id="pate_enter_but"> </a>
+</div>
+ 
+<!-- 
+    <button style="border: solid 2px #00BBD3;opacity: inherit; border-radius: 0px;background-color:#00A3B5;color:white;font-size:larger" id="pate_enter_but">submit</button> -->
+<br>
+
+ </div>
+</div>
+</div>
+
+
+
+
+
+</div>
+
+</div>
+</form>
+</div>
+</div>
+
+<!--Page two end-->
+
+
+
+<!--page three start-->
+
+
+ <div data-role="page" id="question_li" style="background-color: #f5f0e1;" >
+<!-- <script type="text/javascript" src="js/question_frl.js"></script> -->
+<script src="js/five.js"></script>
+<style type="text/css">
+
+.ui-controlgroup-horizontal .ui-controlgroup-controls .ui-btn.ui-radio-on {
+    background-color: #5ABECA !important;
+    color: #ffffff;
+}
+
+.pads{
+padding: 5em;
+}
+
+.mtop{
+margin-top: -1em;
+}
+
+</style>
+<style type="text/css">
+.ui-input-text, .ui-input-search, textarea.ui-input-text.ui-textinput-autogrow {
+    margin: 0px 0px 26px 0px !important;
+    padding: 5px !important;
+}
+</style>
+<style type="text/css">
+/*  .ui-checkbox .ui-btn, .ui-radio .ui-btn, .ui-checkbox .ui-btn:hover, .ui-radio .ui-btn:hover {
+    background-color: rgb(235, 235, 235);
+    font-weight: 400;
+}
+*/
+
+/*.ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {
+    background-color: #151922 !important;
+    border-color: rgba(0,0,0,.87);
+    color: rgba(0, 0, 0, 0.87);
+}
+*/
+/*.ui-checkbox .ui-btn, .ui-radio .ui-btn, .ui-checkbox .ui-btn:hover, .ui-radio .ui-btn:hover {
+   
+    background-color: #1E5A69 !important;
+    font-weight: 400;
+}*/
+
+.ui-radio .ui-btn.ui-radio-on:before {
+    position: absolute;
+    content: "";
+    top: 20px !important;
+    left: 10px !important;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    cursor: pointer;
+    border: 0px;
+    border-radius: 50%;
+    z-index: 3;
+    background-color: rgba(0,0,0,0.54);
+}
+/*.ui-radio .ui-btn.ui-radio-on:before {
+    position: absolute;
+    content: "";
+    top: 20px !important;
+    left: 10px !important;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 6px;
+    height: 6px;
+    margin: 0;
+    cursor: pointer;
+    border: 0px;
+    border-radius: 50%;
+    z-index: 3;
+    background-color: rgba(0,0,0,0.54);
+}
+*/
+/*.ui-btn.ui-radio-off:after, .ui-btn.ui-radio-on:after {
+    position: absolute;
+    top: 15px !important;
+    left: 5px !important;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    cursor: pointer;
+    border: 2px solid rgba(0,0,0,.54);
+    border-radius: 50%;
+    z-index: 2;
+}*/
+.ui-btn.ui-radio-off:after, .ui-btn.ui-radio-on:after {
+    position: absolute;
+    top: 15px !important;
+    left: 5px !important;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    cursor: pointer;
+    border: 15px solid #F5F0E1;
+    border-radius: 50%;
+    z-index: 2;
+}
+/*.third-bg {
+    background-color: #151922;
+    padding: 0px;
+    margin: 0px;
+    color: #ffffff;
+    padding: 20px;
+}
+*/
+/*.ui-mobile label, .ui-controlgroup-label, .ui-controlgroup-label legend {
+    font-size: 20px !important;
+    font-weight: 400;
+    color: #696969;
+    margin-bottom: 0px;
+}*/
+
+.third-bg {
+    /*ackground-color: #9d9fa5 !important;*/
+     background-color: rgb(83, 114, 122) !important;
+    padding: 0px;
+    margin: 0px;
+    color: #fff3f3;
+    padding: 18px !important;
+}
+.third-q {
+    text-align: center;
+    color: #ffffff!important;
+    font-size: 23px;
+    font-weight: 500;
+}
+/*.ui-page-theme-a .ui-radio .ui-btn.ui-radio-on:before {
+    background-color: #009688;
+}
+*/
+
+.ui-controlgroup-controls, .ui-controlgroup-controls .ui-radio, .ui-controlgroup-controls .ui-checkbox, .ui-controlgroup-controls .ui-select, .ui-controlgroup-controls li {
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 0px;
+}
+.ui-mini {
+    margin: .446em;
+    width: 100%;
+}
+
+.ui-controlgroup-horizontal .ui-controlgroup-controls {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+}
+
+
+/*clas*/
+.rw{
+/*  background-color: #2a303c!important;*/
+  /*background-color: #425b93!important;*/
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.field{
+
+
+	/*sdafasdfds*/
+
+  width: 100% !important;
+  margin: 0px 0px !important;
+}
+
+/*.leg{
+ 
+        background-color: #0B4250 !important;
+    
+    width: 97%;
+    color: white !important;
+    padding: 12px ;
+    font-size: 18px !important;
+    height: 17px;
+}*/
+
+.lab{
+    background-color: #3E6771 !important;
+    /*background-color: #1E5A69 !important;*/
+    color: white !important;
+    border: solid 1px #151922 !important;
+    padding-top: 15px;
+    padding-bottom: 15px
+}
+</style>
+<style type="text/css">
+    html .ui-page-theme-a .ui-btn.ui-checkbox-on.ui-checkbox-on:after {
+    background-color: #5abeca !important;
+    border-color: #5abeca !important;
+}
+
+/*.ui-page-theme-a .ui-btn.ui-radio-on:after {
+    border-color: #00bbd3 !important;
+}*/
+
+.ui-page-theme-a .ui-btn.ui-radio-on:after {
+    border-color: #F5F0E1 !important;
+    border: 15px solid #F5F0E1;
+    }
+
+/*.ui-page-theme-a .ui-radio .ui-btn.ui-radio-on:before {
+    background-color: #00bbd3 !important;
+}
+*/
+.ui-page-theme-a .ui-radio .ui-btn.ui-radio-on:before {
+    background-color: #00A3B5 !important;
+}
+
+.ui-icon-check:after, html .ui-btn.ui-checkbox-on.ui-checkbox-on:after {
+    content: "";
+    background-color: #cccccc;
+    background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgi…sZT0iZmlsbDojZmZmZmZmO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lIiAvPgo8L3N2Zz4K") ;
+    width: 35px !important;
+    height: 35px !important;
+    border: 2px solid #cccccc;
+    border-radius: 2px;
+    overflow: hidden;
+}
+ 
+ .ui-btn.ui-checkbox-off:after {
+    border: 20px solid rgba(0,0,0,.54) !important;
+}
+
+</style>
+<!-- <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css"> -->
+<!-- <link rel="stylesheet" href="css/my.css"> -->
+
+<!-- <script src="js/jquery.mobile-1.4.5.js"></script> -->
+
+<!-- <script src="js/map.js"></script> -->
+			<!-- <nd2-include data-src=".//examples/fragments/panel.left.html"></nd2-include> -->
+
+			<div data-role="panel" id="bottomsheet" data-animate="false" data-position='bottom' data-display="overlay">
+				<nd2-include data-src=".//examples/fragments/bottom.sheet.html"></nd2-include> 
+			</div>
+
+			 <div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+				<a href="#bottomsheet" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-more-vert"></i></a>
+				<a href="#cond_patient_details" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi  zmdi-arrow-back"></i></a>
+				<h1 class="wow fadeIn" data-wow-delay='0.4s'>Question</h1>
+			</div>
+
+			<div role="main" class="ui-content full"  style="background-color: #F5F0E1 !important;" >
+	
+<div  class="third-bg">
+<div class="third-q" ><span>SELECT THE APPROPRIATE OPTIONS </span></div>
+</div>
+
+<br>
+<form action="" id="callAjaxFormradio" style="background-color: rgb(245, 240, 225);margin-left:25px;margin-right:25px">
+
+<div class="row rw" style="background-color: #009688 !important;" id="">
+  
+
+  <fieldset data-role="controlgroup" class="field">
+                            <legend class="fnt1 leg">Chest pain like ?</legend>
+                           <div  class="fnt2" id="" ></div>
+                       
+                            <input type="radio" name="chestpainit" id="radio-choice-11bq" value="46" checked="checked">
+
+                            <label  for="radio-choice-11bq" class="waves-effect lab">Crushing Like tighteneing with a rope</label>
+
+                            <input type="radio" name="chestpainit" id="radio-choice-12br" value="47">
+
+                            <label  for="radio-choice-12br" class="waves-effect lab">Heaviness like pressing with a heavy weight</label>
+                            <input type="radio" name="chestpainit" id="radio-choice-13by" value="48">
+                            <label  for="radio-choice-13by" class="waves-effect lab">Burning like acid burn</label>
+
+                            <input type="radio" name="chestpainit" id="radio-choice-14bi" value="49">
+                            <label for="radio-choice-14bi" class="waves-effect lab">Sharp like stabbing with knife</label>
+                        
+                           
+  </fieldset>
+</div>
+
+
+<br>
+<div class="row rw" style="background-color: #009688 !important;" >
+  
+
+  <fieldset data-role="controlgroup" class="field">
+                            <legend class="fnt1 leg">When did the pain start ?</legend>
+                           <div  class="fnt2" id="" ></div>
+                       
+                            <input type="radio" name="painstrttw" id="radio-choice-11brqq" value="50" checked="checked">
+
+                            <label  for="radio-choice-11brqq" class="waves-effect lab">< 1 hour</label>
+
+                            <input type="radio" name="painstrttw" id="radio-choice-12brrq" value="51">
+
+                            <label  for="radio-choice-12brrq" class="waves-effect lab">2 to 12 Hours</label>
+                            <input type="radio" name="painstrttw" id="radio-choice-13bryq" value="52">
+                            <label  for="radio-choice-13bryq" class="waves-effect lab">12 hours</label>
+
+                        
+                           
+  </fieldset>
+</div>
+<br>
+<div class="row rw" style="background-color: #009688 !important;" >
+  
+
+  <fieldset data-role="controlgroup" class="field">
+                            <legend class="fnt1 leg">Under what situation?</legend>
+                           <div  class="fnt2" id="" ></div>
+                       
+                            <input type="radio" name="painstrtt3" id="radio-choice-11brqqrt" value="53" checked="checked">
+
+                            <label for="radio-choice-11brqqrt" class="lab waves-effect">At rest sitting / lying down</label>
+
+                            <input type="radio" name="painstrtt3" id="radio-choice-12brrqrt" value="54">
+
+                            <label  for="radio-choice-12brrqrt" class="waves-effect lab">On exertion walking up slope / climbing stairs</label>
+                         
+
+                        
+                           
+  </fieldset>
+</div>
+<br>
+<div class="row rw" style="background-color: #009688 !important;" >
+  
+
+  <fieldset data-role="controlgroup" class="field">
+                            <legend class="fnt1 leg">Relieved with Isordil tablet or NTG spray?</legend>
+                           <div  class="fnt2" id="" ></div>
+                       
+                            <input type="radio" name="painstrtt4" id="radio-choice-1t" value="55" >
+
+                            <label  for="radio-choice-1t" class="waves-effect lab">YES </label>
+
+                            <input type="radio" name="painstrtt4" id="radio-choice-12t" value="56" checked="checked">
+
+                            <label for="radio-choice-12t" class="waves-effect lab">NO</label>
+                         
+
+                        
+                           
+  </fieldset>
+</div>
+<br>
+<div class="row rw" style="background-color: #009688 !important;" >
+  
+
+  <fieldset data-role="controlgroup" class="field">
+                            <legend class="fnt1 leg">Do you have any breathing difficulty?</legend>
+                           <div  class="fnt2" id="" ></div>
+                       
+                            <input type="radio" name="painstrtt5" id="radio-choice-1tUS" value="57" checked="checked">
+
+                            <label  for="radio-choice-1tUS" class="waves-effect lab">Unable to speak a full sentence </label>
+
+                            <input type="radio" name="painstrtt5" id="radio-choice-12tUO" value="58">
+
+                            <label  for="radio-choice-12tUO" class="waves-effect lab">At rest sitting / lying down</label>
+
+                             <input type="radio" name="painstrtt5" id="radio-choice-12tUY" value="59">
+
+                            <label for="radio-choice-12tUY" class="waves-effect lab">On exertion walking up slope / climbing stairs</label>
+                         
+
+                        
+                           
+  </fieldset>
+</div>
+<br>
+<div class="row rw" style="background-color: #009688 !important;" >
+  
+
+  <fieldset data-role="controlgroup" class="field">
+                            <legend class="fnt1 leg">Have you had chest pain?</legend>
+                           <div  class="fnt2" id="" ></div>
+                       
+                            <input type="radio" name="painstrtt6" id="radio-choice-1tUSA" value="60" >
+
+                            <label  for="radio-choice-1tUSA" class="waves-effect lab">Yes, At rest sitting / lying down </label>
+
+                            <input type="radio" name="painstrtt6" id="radio-choice-12tUOA" value="61">
+
+                            <label  for="radio-choice-12tUOA" class="waves-effect lab">On exertion walking up slope / climbing stairs</label>
+
+                             <input type="radio" name="painstrtt6" id="radio-choice-12tUYA" value="62" checked="checked">
+
+                            <label  for="radio-choice-12tUYA" class="waves-effect lab">NO</label>
+                         
+
+                        
+                           
+  </fieldset>
+</div>
+<br>
+<div class="row rw" style="background-color: #009688 !important;" >
+  
+
+  <fieldset data-role="controlgroup" class="field">
+                            <legend class="fnt1 leg">Do you have Palpitation (Feeling the heart beat going fast above 90 beats in a minute)?</legend>
+                           <div  class="fnt2" id="" ></div>
+                       
+                            <input type="radio" name="painstrtt7" id="radio-choice-1tUSAA" value="63" >
+
+                            <label  for="radio-choice-1tUSAA" class="waves-effect lab">Yes</label>
+
+
+                             <input type="radio" name="painstrtt7" id="radio-choice-12tUYAA" value="64" checked="checked">
+
+                            <label  for="radio-choice-12tUYAA" class="waves-effect lab">NO</label>
+                         
+
+                        
+                           
+  </fieldset>
+</div>
+<br>
+<div class="row rw" style="background-color: #009688 !important;" >
+  
+
+  <fieldset data-role="controlgroup" class="field">
+                            <legend class="fnt1 leg">Did you have vomiting more than twice?</legend>
+                           <div  class="fnt2" id="" ></div>
+                       
+                            <input type="radio" name="painstrtt8" id="radio-choice-1tUSAIA" value="65" >
+
+                            <label  for="radio-choice-1tUSAIA" class="waves-effect lab">Yes</label>
+
+
+                             <input type="radio" name="painstrtt8" id="radio-choice-12tUYAIA" value="66" checked="checked">
+
+                            <label  for="radio-choice-12tUYAIA" class="waves-effect lab">NO</label>
+                         
+
+                        
+                           
+  </fieldset>
+</div>
+<br>
+<div class="row rw" style="background-color: #009688 !important;" >
+  
+
+  <fieldset data-role="controlgroup" class="field">
+                            <legend class="fnt1 leg">Do you have sweating?</legend>
+                           <div  class="fnt2" id="" ></div>
+                       
+                            <input type="radio" name="painstrtt9" id="radio-choice-1tUSAIAQ" value="67" >
+
+                            <label  for="radio-choice-1tUSAIAQ" class="waves-effect lab">Yes</label>
+
+
+                             <input type="radio" name="painstrtt9" id="radio-choice-12tUYAIAQ" value="68" checked="checked">
+
+                            <label  for="radio-choice-12tUYAIAQ" class="waves-effect lab">NO</label>
+                         
+
+                        
+                           
+  </fieldset>
+</div>
+<br>
+<div class="row rw" style="background-color: #009688 !important;" >
+  
+
+  <fieldset data-role="controlgroup" class="field">
+                            <legend class="fnt1 leg">Do you have feeling of fear?</legend>
+                           <div  class="fnt2" id="" ></div>
+                       
+                            <input type="radio" name="painstrtt10" id="radio-choice-1tUSAIAR" value="69" >
+
+                            <label  for="radio-choice-1tUSAIAR" class="waves-effect lab">Yes</label>
+
+
+                             <input type="radio" name="painstrtt10" id="radio-choice-12tUYAIAR" value="70" checked="checked">
+
+                            <label for="radio-choice-12tUYAIAR" class="waves-effect lab">NO</label>
+                         
+
+                        
+                           
+  </fieldset>
+</div>
+<br>
+
+
+ <div class="row rw" >
+ 
+                        <fieldset data-role="controlgroup" style="width: 100%;">
+                            <legend class="fnt1 leg" >Do you have these risk factors?</legend>
+                              <div  class="fnt2" id="" ></div>
+                            <input type="checkbox" name="painstrtt11" id="checkbox-1ab" value="71" checked="">
+                            <label class="lab waves-effect " for="checkbox-1ab">Diabetes</label>
+                            <input type="checkbox" name="painstrtt11" id="checkbox-2ab" value="72">
+                            <label class="lab waves-effect " for="checkbox-2ab">High Blood pressure</label>
+                            <input type="checkbox" name="painstrtt11" id="checkbox-3ab" value="73">
+                            <label class="lab waves-effect " for="checkbox-3ab">High cholosterol</label>
+                            <input type="checkbox" name="painstrtt11" id="checkbox-4ab" value="74">
+                            <label class="lab waves-effect " for="checkbox-4ab">Current or ex- smoker</label>
+                            <input type="checkbox" name="painstrtt11" id="checkbox-4ab5" value="75">
+                            <label  class="lab waves-effect " for="checkbox-4ab5">Heart attack parents / brother / sister</label>
+                        </fieldset>
+
+
+</div>
+<br>
+ <div class="row rw" >
+ 
+                        <fieldset data-role="controlgroup" style="width: 100%;">
+                            <legend class="fnt1 leg" >Previous Medical History?</legend>
+                              <div  class="fnt2" id="" ></div>
+                            <input type="checkbox" name="painstrtt12" id="checkbox-1abw" value="76" checked="">
+                            <label  class="lab waves-effect " for="checkbox-1abw">Angina / heart problems</label>
+                            <input type="checkbox" name="painstrtt12" id="checkbox-2abw" value="77">
+                            <label class="lab waves-effect " for="checkbox-2abw">Asthma / lung disease</label>
+                            <input type="checkbox" name="painstrtt12" id="checkbox-3abw" value="78">
+                            <label class="lab waves-effect " for="checkbox-3abw">Stomach acid / ulcer</label>
+                            <input type="checkbox" name="painstrtt12" id="checkbox-4abw" value="79">
+                            <label class="lab waves-effect " for="checkbox-4abw">Urine problem</label>
+                    
+                        </fieldset>
+
+
+</div>
+<br>
+
+<!-- <div class="row" style="background-color: #ebebeb;  background-color: #ebebeb;margin-left: 5px;
+    margin-right: 5px;">
+  
+  <fieldset data-role="controlgroup">
+                            <legend style="font-size: 14px;color: black;font-weight: 400;">Any Operations</legend>
+                            <div id="painstrt13"></div>
+                        <input type="text" name="anyop" id="anyop" value="" data-clear-btn="true" placeholder="Any Operation">
+                        </fieldset>
+
+
+ cond_patient_details
+</div> 
+<br>-->
+
+<div class="row " style="margin-left:5px;margin-right:5px">
+ <label  for="textarea2b" class="fnt1 leg rw" >Any Operations</label>
+  <div  style="width: 99%;" class="fnt2" id="" ></div>
+
+    <textarea  style="background-color: #ffffff !important;"cols="40" rows="8" name="anyop" id="anyop" placeholder="Any Operations"></textarea>
+
+
+</div>
+<br>
+</div>
+
+<div class="row">
+<div class="col-xs-3 padz"></div>
+ <div class="col-xs-6 padz">
+   
+   <!-- <button style="border: solid 2px #00BBD3;opacity: inherit; border-radius: 0px;background-color:#00A3B5;color:white;font-size:larger" id="chatSendBut_qu">submit</button> -->
+<a href="" class="txt-dec">  <input type="button" value="Submit" style="border: solid 2px #00BBD3;opacity: inherit; border-radius: 0px;" id="chatSendBut_qu"> </a>
+ </div>
+
+<div class="col-xs-3 padz"></div>
+
+
+</div>
+</form>
+<br>
+<!--   <a href="#myPopup1d" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all" data-position-to="window">Position popup to window</a> -->
+
+     <div data-role="popup" id="myPopup1da" class="ui-content" data-dismissible="false" >
+      <p class="popsi">Report Submitted Succesfully</p>
+     <!--  <a href="#sear_nearby_mapp" class="txt-dec">  <input type="button" value="ok" style="opacity: inherit; border-radius: 0px;" id=""> </a> -->
+      <a href="#" > <button style="border: solid 2px #00BBD3;opacity: inherit; border-radius: 0px;background-color:#00A3B5;color:white;font-size:larger" id="tosear_nearby_mapp">OK</button></a>
+    </div>
+
+<div data-role="popup" id="positionWindow" class="ui-content" style="max-width:380px;background-color:#007A88;color:white;padding:50px;border-radius:10px;font-weight:500">
+    
+<p>Report Submitted Succesfully.</p>
+      <button type="submit" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left" id="sear_nearby_mappp">ok</button>
+</div>
+
+
+</div>
+</div>
+
+<!--page three end-->
+
+
+
+
+<!--page four start-->
+
+
+ <div data-role="page" id="sear_nearby_mapp" >
+<script type="text/javascript" src="js/sear_nearby_mapp.js"></script>
+
+<!-- <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css"> -->
+<!-- <link rel="stylesheet" href="css/my.css"> -->
+    <link href="css/uploadfilemulti.css" rel="stylesheet">
+<script src="js/jquery.fileuploadmulti.min.js"></script>
+<script src="js/jquery.mobile-1.4.5.js"></script>
+<style type="text/css">
+   div.upload {
+     width: 50px !important;
+    height: 50px !important;
+    background: url(../www/images/primary/qwe.png);
+    /* background-color: red; */
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+</style>
+<!-- <script src="js/map.js"></script> -->
+			<!-- <nd2-include data-src=".//examples/fragments/panel.left.html"></nd2-include> -->
+
+	    <div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+        <a href="#bottomsheet" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-more-vert"></i></a>
+        <!-- <a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a> -->
+          <a href="#" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi  zmdi-arrow-back" id="homebacfromupload"></i></a>
+        <h1 class="wow fadeIn" data-wow-delay='0.4s'>My Heart</h1>
+      </div>
+
+			<div role="main" class="ui-content full" data-inset="false" id="main">
+
+
+<div id="chatr">
+
+</div>
+
+<div data-role="popup" id="popupPhotoPortrait" class="photopopup imj " data-overlay-theme="a" data-corners="false" data-tolerance="30,15">
+</div>
+
+ <div class="row " style="margin-left:5px;margin-right:5px">
+ <label  for="textarea2b" class="fnt1 lega rwa" >Load ECG</label>
+ </div>
+
+  <div class="upload_box">
+ <div class="ui-grid-a">
+ <div class="ui-block-a" style="width:15%;">
+<div class="upload" id="mulitplefileuploader">
+      
+
+
+    </div>
+    </div>
+    </div>
+</div>
+<!-- <div id="status"></div> -->
+<!--upload end-->
+
+
+<div style="margin-top:50px;margin-left:20%;margin-right:20% ">
+<!-- <a href="" class="txt-dec">  <input type="button" value="SEARCH NEARBY LOCATION" style="border: solid 2px #00BBD3;opacity: inherit; border-radius: 0px;" id="sear_Addre" > </a> -->
+<a href="#search_near_twokm" class="txt-dec" id="" >  <input type="button" value="SEARCH NEARBY LOCATION" style="border: solid 2px #00BBD3;opacity: inherit; border-radius: 0px;" > </a>
+</div>
+
+</div>
+</div>
+<!--map test end-->
+
+<!--Page four starts-->
+
+ <div data-role="page" id="search_near_twokm" >
+<script type="text/javascript" src="js/search_near_twokm.js"></script>
+<!-- <script src="js/map.js"></script> -->
+
+			<!-- <nd2-include data-src=".//examples/fragments/panel.left.html"></nd2-include> -->
+
+			<div data-role="panel" id="bottomsheet" data-animate="false" data-position='bottom' data-display="overlay">
+				<nd2-include data-src=".//examples/fragments/bottom.sheet.html"></nd2-include>
+			</div>
+
+			 <div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+				<a href="#bottomsheet" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-more-vert"></i></a>
+				<a href="#pageone" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-arrow-back"></i></a>
+				<h1 class="wow fadeIn" data-wow-delay='0.4s'>My Heart</h1>
+			</div>
+
+			<div role="main" class="ui-content four-bg" data-inset="false">
+	
+
+<p class="sec-head2">HERE IS OUR RECOMMENDED CHOICE OF CARDIOLOGISTS IN YOUR NEAR BY LOCATION</p>
+
+<div class="sec-both2">&nbsp;</div>
+</div>
+  <div class="ui-grid-solo sec-mainsolo" style="width:100%;">
+
+    <div class="ui-block-a"> 
+        <div class="ui-grid-solo">
+
+<ul data-role="listview" data-icon="false" id="cadd">
+  
+
+
+      </ul>
+
+</div>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<!--Page four end-->
+
+
+
+
+
+
+		
+	
+		
+
+		<script src="vendor/waves/waves.min.js"></script>
+		<script src="vendor/wow/wow.min.js"></script>
+
+		<script src="js/nativedroid2.js"></script>
+		<script src="nd2settings.js"></script>
+
+
+	</body>
+</html>
