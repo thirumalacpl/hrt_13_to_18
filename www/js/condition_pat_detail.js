@@ -77,8 +77,8 @@ for(a=0;a<patient_detaias_array.length;a++){
         lat_hosp = position.coords.latitude;
         long_hosp = position.coords.longitude;
 
-//alert(lat_hosp+'lat_hosp');
-//alert(long_hosp+'long_hosp');
+alert(lat_hosp+'lat_hosp');
+alert(long_hosp+'long_hosp');
 
 /*var lat_hosp ='89';
 var long_hosp ='234';*/
