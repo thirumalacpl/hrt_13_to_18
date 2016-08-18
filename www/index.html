@@ -23,43 +23,29 @@
 
   <link rel="stylesheet" href="css/heart.css" />
 
-
 <script type="text/javascript">
-  //handle Back button
+	//handle Back button
 function onDeviceReady() {
-   
+    // Register the event listener
     document.addEventListener("backbutton", onBackKeyDown, false);
     console.log('Device ready - register onBackKeyDown()');                
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);
 
-/*function onBackKeyDown() {
+function onBackKeyDown() {
     var active_page = $( ":mobile-pagecontainer" ).pagecontainer( "getActivePage" );
     var id =active_page.page().attr('id');
-    if (id==='sear_nearby_mapp') {
-      alert("asdadewwwwwwwwwwwww");
-      $.mobile.changepage($('#sear_nearby_mapp'),{transition:"none", changeHash: true, reverse: false});
-return false;
-    }
-}*/
-
-document.addEventListener('deviceready', function() {
-    alert('deviceready');
-    var exitApp = false, intval = setInterval(function (){exitApp = false;}, 1000);
-    document.addEventListener("backbutton", function (e){
-        e.preventDefault();
-        if (exitApp) {
-            clearInterval(intval) 
-            (navigator.app && navigator.app.exitApp()) || (device && device.exitApp())
+    if (id==='pageone') {
+        if (confirm('Do you want to exit the app?')==true){
+            navigator.app.exitApp();
         }
-        else {
-            exitApp = true
-            history.back(1);
-        } 
-    }, false);
-}, false);
-
+    }
+    else{
+    navigator.app.backHistory();
+    }
+}
+//**
 </script>
 
 	</head>
