@@ -72,6 +72,12 @@ for(a=0;a<patient_detaias_array.length;a++){
 
 alert(navigator.geolocation.getCurrentPosition+'navigator.geolocation.getCurrentPosition');
 
+var watchId = navigator.geolocation.watchPosition(geolocationSuccess,
+                                                  [geolocationError],
+                                                  [geolocationOptions]);
+
+alert(watchId+'watchId');
+
    navigator.geolocation.getCurrentPosition(onSuccess, onError);  
 
 //alert(geolocation.getCurrentPosition+'alert(geolocation.getCurrentPosition)');
