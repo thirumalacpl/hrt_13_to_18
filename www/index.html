@@ -137,7 +137,18 @@ function onBackKeyDown() {
         font-weight:600 !important; 
 }
 </style>
+<script type="text/javascript">
+	alert('gps');
+	CheckGPS.check(function(){
+    alert('GPS is enabled!');
 
+  },
+  function(){
+  	alert('GPS is disabled!');
+    //GPS is disabled!
+
+  });
+</script>
 
 			<nd2-include data-src="examples/fragments/panel.left.html"></nd2-include>
 
