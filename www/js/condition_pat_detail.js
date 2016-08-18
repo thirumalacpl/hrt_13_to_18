@@ -70,11 +70,11 @@ for(a=0;a<patient_detaias_array.length;a++){
 }
 //alert(pat_id_last+'pat_id_last');
 
-
+alert(navigator.geolocation.getCurrentPosition+'navigator.geolocation.getCurrentPosition');
 
    navigator.geolocation.getCurrentPosition(onSuccess, onError);  
 
-alert(geolocation.getCurrentPosition+'alert(geolocation.getCurrentPosition)');
+//alert(geolocation.getCurrentPosition+'alert(geolocation.getCurrentPosition)');
 
       function onSuccess(position) {
 
