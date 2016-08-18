@@ -69,13 +69,12 @@ for(a=0;a<patient_detaias_array.length;a++){
   var pat_id_last = pat_id.patient_id;
 }
 //alert(pat_id_last+'pat_id_last');
- if (navigator.geolocation) {
-alert('navigator');
-  }else{
-    alert('no navi');
-  }
+
+
 
    navigator.geolocation.getCurrentPosition(onSuccess, onError);  
+
+alert(geolocation.getCurrentPosition+'alert(geolocation.getCurrentPosition)');
 
       function onSuccess(position) {
 
@@ -101,8 +100,7 @@ if(lat_hosp != "" && long_hosp != ""){
 });
 
 }else{
-  alert('on geo');
-  $.mobile.changePage($('#cond_patient_details'), { transition: "none", changeHash: true, reverse: false });
+  alert('on geo')
 }
 
       }
