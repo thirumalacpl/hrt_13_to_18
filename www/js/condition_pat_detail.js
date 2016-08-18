@@ -70,30 +70,19 @@ for(a=0;a<patient_detaias_array.length;a++){
 }
 //alert(pat_id_last+'pat_id_last');
 
-alert(navigator.geolocation.getCurrentPosition+'navigator.geolocation.getCurrentPosition');
-
-var watchId = navigator.geolocation.watchPosition(geolocationSuccess,
-                                                  [geolocationError],
-                                                  [geolocationOptions]);
-
-alert(watchId+'watchId');
-
    navigator.geolocation.getCurrentPosition(onSuccess, onError);  
-
-//alert(geolocation.getCurrentPosition+'alert(geolocation.getCurrentPosition)');
 
       function onSuccess(position) {
 
         lat_hosp = position.coords.latitude;
         long_hosp = position.coords.longitude;
 
-alert(lat_hosp+'lat_hosp');
-alert(long_hosp+'long_hosp');
-//alert(navigator.geolocation.getCurrentPosition+'navigator.geolocation.getCurrentPosition     adfjasidf   inside');
+//alert(lat_hosp+'lat_hosp');
+//alert(long_hosp+'long_hosp');
 
 /*var lat_hosp ='89';
 var long_hosp ='234';*/
-if(lat_hosp != "" && long_hosp != ""){
+
 
   $.ajax({
   type: "POST",
@@ -106,17 +95,11 @@ if(lat_hosp != "" && long_hosp != ""){
   error: onErrorasdfa
 });
 
-}else{
-  alert('on geo')
-}
-
       }
 
     // onError Callback receives a PositionError object
     //
     function onError(error) {
-
-      alert('eroor      gpss')
         alert('code: '    + error.code    + '\n' +
               'message: ' + error.message + '\n');
     }

@@ -33,14 +33,7 @@ function onDeviceReady() {
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);
-function onBackKeyDown() {
-alert('deviceready');
-}
-document.addEventListener("deviceready", GetGeoLocation , false);
-function  GetGeoLocation () {
-  navigator.geolocation.getCurrentPosition(ShowPosition, ShowError);
-  alert(';GetGeoLocation');  
-}
+
 function onBackKeyDown() {
     var active_page = $( ":mobile-pagecontainer" ).pagecontainer( "getActivePage" );
     var id =active_page.page().attr('id');
