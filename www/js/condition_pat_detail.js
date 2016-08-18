@@ -82,7 +82,7 @@ alert(long_hosp+'long_hosp');
 
 /*var lat_hosp ='89';
 var long_hosp ='234';*/
-
+if(lat_hosp != "" && long_hosp != ""){
 
   $.ajax({
   type: "POST",
@@ -94,6 +94,11 @@ var long_hosp ='234';*/
   dataType: 'json',
   error: onErrorasdfa
 });
+
+}else{
+  alert('on geo');
+  $.mobile.changePage($('#cond_patient_details'), { transition: "none", changeHash: true, reverse: false });
+}
 
       }
 
